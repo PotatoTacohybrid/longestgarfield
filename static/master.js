@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let d = new Date()
     const button =  document.querySelector('#button')
 
+    if (parseInt(localStorage.getItem('timer')) > 1549406966) {
+        localStorage.removeItem('timer');
+    }
+
     if (parseInt(localStorage.getItem('timer')) > d.getTime() - 86400000) {
         button.disabled = true;
     }
@@ -20,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const newText = document.querySelector('#newText');
 
-            if (newText.value.length === 0 || newText.value.length > 20 || newText.value.indexOf(' ') > 0) {
+            if (newText.value.length === 0 || newText.value.length > 140) {
                 return false;
             }
 
