@@ -9,22 +9,22 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
-garfields = ["oh", "hello", "john"]
-
 @app.route("/")
 def index():
-    return render_template("index.html", garfields=garfields)
 
-@app.route("/clear", methods=["POST"])
-def clear():
-    garfields = []
+    with open('main.txt') as f:
+        main = f.readlines()
+
+    return render_template("index.html", main=main)
+
 
 
 @socketio.on('new garfield')
 def garfield(data):
     newText = data["newText"]
 
-    garfields.append(newText)
+    with open("main.txt", 'a') as f:
+        f.write(f'{newText}\n')
 
     emit('add garfield', {'newText': newText}, broadcast=True)
 
