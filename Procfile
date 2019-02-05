@@ -1,1 +1,1 @@
-web: gunicorn application:app --preload
+web: gunicorn -k flask_sockets.worker application:app
