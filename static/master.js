@@ -6,10 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let d = new Date()
     const button =  document.querySelector('#button')
 
-    if (parseInt(localStorage.getItem('timer')) > 1549406966) {
-        localStorage.removeItem('timer');
-    }
-
     if (parseInt(localStorage.getItem('timer')) > d.getTime() - 86400000) {
         button.disabled = true;
     }
