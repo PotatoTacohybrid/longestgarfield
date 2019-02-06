@@ -3,6 +3,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    function writeToLog(text, type) {
+        document.querySelector('#log').innerHTML = `<p class='text-${type}'>${text}</p>`;
+    }
+
+    function clearLog() {
+        document.querySelector('#log').innerHTML = ''
+    }
+
     let d = new Date()
     const button =  document.querySelector('#button')
 
@@ -12,6 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
     else {
         button.disabled = false;
     }
+
+    document.querySelector('#newText').addEventListener('input', function() {
+        if (this.value.length > 140) {
+            writeToLog('Sentences cannot be longer than 140 characters', 'danger');
+        }
+        else {
+            clearLog()
+        }
+    })
 
     const socket = io();
 
