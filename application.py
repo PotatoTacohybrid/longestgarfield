@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
-engine = create_engine("postgres://jibkkepbuwfmbv:518094e0c3908585dd9b5b2caee32ede587a75896bf35b6b24ad9db9a0a158fe@ec2-107-20-183-142.compute-1.amazonaws.com:5432/dbe86mmth840i0")
+engine = create_engine(os.environ.get('DATABASE_URL'))
 db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
