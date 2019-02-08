@@ -12,6 +12,7 @@ app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
 engine = create_engine(os.environ.get('DATABASE_URL'))
+# engine = create_engine('postgres://tajpuzzyacgzop:dcd794c1d8ddb6eddba1c0feed589b4449e482d6b655924fc348b6a149c71a7a@ec2-54-204-2-25.compute-1.amazonaws.com:5432/dd9j6eg5rmlpvl')
 db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
