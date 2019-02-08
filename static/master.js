@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function writeToLog(text, type) {
-        document.querySelector('#log').innerHTML = `<p class='text-${type}'>${text}</p>`;
+        document.querySelector('#log').innerHTML = `<div class="alert alert-${type}" role="alert">${text}</div>`;
     }
 
     function clearLog() {
