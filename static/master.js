@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (timeLeft <= 0) {
 
-                newText.placeholder = `You may now submit`;
+                newText.placeholder = `Your Garfield comment`;
 
                 button.disabled = false;
                 newText.disabled = false;
