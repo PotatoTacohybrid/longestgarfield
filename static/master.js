@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let timeLeft = Math.round((oldTime / 1000) - (curTime / 1000) + 59)
 
 
-            if (timeLeft === 0) {
+            if (timeLeft <= 0) {
 
                 newText.placeholder = `You may now submit`;
 
@@ -60,12 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     timer()
 
 
-    //if (parseInt(localStorage.getItem('timer')) > d.getTime() - 86400000) {
-        //button.disabled = true;
-    //}
-    //else {
-        //button.disabled = false;
-    //}
 
     
 
